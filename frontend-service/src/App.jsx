@@ -17,7 +17,7 @@ import ActivityDetail from "./components/ActivityDetail";
 const ActivitiesPage = () => {
   return (
     <Box sx={{ p: 2, border: "1px dashed gray" }}>
-      <ActivityForm onActivitiesAdded = {() => window.location.reload()}/>
+      <ActivityForm onActivitiesAdded={() => window.location.reload()} />
       <ActivityList />
     </Box>
   );
@@ -49,12 +49,17 @@ function App() {
         </Button>
       ) : (
         <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
-          <Button variant="contained" onClick={logOut}>
+          <Button variant="contained" onClick={() => {
+            dispatch(logout());
+            logOut();
+          }}>
             Logout
           </Button>
           <Routes>
             <Route path="/activities" element={<ActivitiesPage />} />
             <Route path="/activities/:id" element={<ActivityDetail />} />
+            <Route path="/callback" element={<Navigate to="/activities" replace />} />
+            <Route path="*" element={<Navigate to="/activities" replace />} />
             <Route
               path="/"
               element={

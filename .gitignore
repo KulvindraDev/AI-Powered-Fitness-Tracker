@@ -1,2 +1,9 @@
-.idea/
-.DS_Store
+# Ignore .env files (contains secrets)
+.env
+.env.local
+.env.*.local
+
+# Ignore Docker volumes
+postgres-data/
+mongodb-data/
+keycloak-data/

@@ -12,7 +12,7 @@ api.interceptors.request.use((config) => {
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }
-    
+
     if (userId) {
         config.headers['X-User-ID'] = userId;
     }

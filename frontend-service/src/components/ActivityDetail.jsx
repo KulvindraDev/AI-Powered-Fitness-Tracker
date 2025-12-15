@@ -56,7 +56,7 @@ const ActivityDetail = () => {
             <Typography variant="h6">Improvements</Typography>
             {activity?.improvements?.map((improvement, index) => (
               <Typography key={index}>
-                • {activity.improvements}
+                • {improvement}
               </Typography>
             ))}
 

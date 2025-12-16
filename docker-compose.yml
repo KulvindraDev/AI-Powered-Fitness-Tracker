@@ -58,7 +58,7 @@ services:
       zookeeper:
         condition: service_healthy
     ports:
-      - "${KAFKA_EXTERNAL_PORT:-9092}:9092"
+      - "${KAFKA_EXTERNAL_PORT}:9092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -81,8 +81,8 @@ services:
     container_name: fitness-keycloak
     command: start-dev --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HTTP_PORT: 8080
       KC_HOSTNAME_STRICT: false
       KC_HOSTNAME_STRICT_HTTPS: false

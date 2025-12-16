@@ -7,3 +7,21 @@
 postgres-data/
 mongodb-data/
 keycloak-data/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+target/
+build/
+dist/
+node_modules/
